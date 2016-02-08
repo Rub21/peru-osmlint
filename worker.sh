@@ -50,5 +50,7 @@ geojson-merge $DATA/*.final.json > $DATA/results.json
 gist="`geojson-josm-url $DATA/results.json | gist -f results.json`"
 url="https://hey.mapbox.com/peer-review/#$gist"
 
+echo $url
+
 echo "# Delete temporary json files"
 rm  $DATA/*.json
