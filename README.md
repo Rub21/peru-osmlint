@@ -4,10 +4,12 @@ This repository shows an easy way how to detect errors using [osmlint](https://g
 
 ### Clone the repository
 
+`git clone https://github.com/Rub21/peru-osmlint.git`
+
 ### Install dependencies
 
 ```sh
-peru-osmlint$ ./install.sh
+peru-osmlint$ sudo ./install.sh
 ```
 ### Obtain data
 You can download the planet MBTiles data from [here](http://osmlab.github.io/osm-qa-tiles/), or MBtiles per [contry](http://osmlab.github.io/osm-qa-tiles/country.html) as well.  For this example I will use [peru.mbtiles](https://s3.amazonaws.com/mapbox/osm-qa-tiles/latest.country/peru.mbtiles.gz)
@@ -21,3 +23,5 @@ For this I use this [wiki](http://wiki.openstreetmap.org/wiki/User:Ewmjc/Country
 
 
 ### Execute the app
+
+`./worker.sh "[-81.462250,-18.417079,-68.542328,0.24169850]"`
