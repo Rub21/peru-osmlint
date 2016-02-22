@@ -49,43 +49,43 @@ echo "# Generate gist..."
 
 echo "- Bridge onnode..."
 gist="`geojson-josm-url $DATA/bridgeonnode.final.json | gist -f bridgeonnode.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 
 echo "- Crossing highways..."
 gist="`geojson-josm-url $DATA/crossinghighways.final.json | gist -f crossinghighways.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "- Crossing waterways and highways..."
 gist="`geojson-josm-url $DATA/crossingwaterwayshighways.final.json | gist -f crossingwaterwayshighways.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "- Missing layer on bridges..."
 gist="`geojson-josm-url $DATA/missinglayerbridges.final.json | gist -f missinglayerbridges.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "- Node ending near highway..."
 gist="`geojson-josm-url $DATA/nodeendingnearhighway.final.json | gist -f nodeendingnearhighway.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "- Self intersecting highways..."
 gist="`geojson-josm-url $DATA/selfintersectinghighways.final.json | gist -f selfintersectinghighways.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "- Unclosedways..."
 gist="`geojson-josm-url $DATA/unclosedways.final.json | gist -f unclosedways.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "- Unconnected highways..."
 gist="`geojson-josm-url $DATA/unconnectedhighways.final.json | gist -f unconnectedhighways.final.json`"
-url="https://hey.mapbox.com/peer-review/#$gist"
+url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
 echo "# Delete temporary json files"
