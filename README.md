@@ -33,18 +33,46 @@ To run all validators you can run the following command.
 
 `./worker.sh peru.mbtiles "[-81.462250,-18.417079,-68.542328,0.24169850]"`
 
-If in case you want to run the validator separately, you can do the following.
+If in case you want to run the validator separately, you can run the  following commands.
 
 ```sh
 osmlint crossinghighways --bbox="[-81.462250,-18.417079,-68.542328,0.24169850]"  /tmp/peru.mbtiles > /tmp/crossinghighways.json
 python utils/merge-geojson.py /tmp/crossinghighways.json > /tmp/crossinghighways.final.json
 geojson-josm-url /tmp/crossinghighways.final.json | gist -f crossinghighways.final.json
-
 ```
+
 
 the output will be  a gist URL: https://gist.github.com/7bd40a110f8118e753e3
 
-if you want to see these errors in [mapbox-peer-review](https://hey.mapbox.com/peer-review/) plataforn, you can add the url after Gist ater the plataform url.
-e.g
+### Result
 
-https://hey.mapbox.com/peer-review/#https://gist.github.com/7bd40a110f8118e753e3
+
+```
+- Bridge onnode
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/17bfc6999ea1d2452f05
+- Crossing highways...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/0061533a1b1369f2523a
+- Crossing waterways and highways...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/ed6fdd7b37cf283731ff
+- Missing layer on bridges...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/05a6ec4d263569d40d66
+- Node ending near highway...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/e593889b973c221aafe8
+- Self intersecting highways...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/ed2e30864fb1447d1de0
+- Unclosedways...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/3c282c6eba5d067baff2
+- Unconnected highways...
+http://rub21.github.io/geojson-dashboard/#https://gist.github.com/40b38e802556f94f41d9
+
+```
+To see this error on a dashboard, you can use this [fork](https://github.com/Rub21/geojson-dashboard) form [geojson-dashboard](https://github.com/fulcrumapp/geojson-dashboard).
+
+- [Bridges on a node](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/17bfc6999ea1d2452f05)
+- [Crossing highways](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/0061533a1b1369f2523a)
+- [Crossing waterways and highways](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/ed6fdd7b37cf283731ff)
+- [Missing layer on bridges](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/05a6ec4d263569d40d66)
+- [Node ending near highway](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/e593889b973c221aafe8)
+- [Self intersecting highways](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/ed2e30864fb1447d1de0)
+- [Unclosedways](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/3c282c6eba5d067baff2)
+- [Unconnected highways](http://rub21.github.io/geojson-dashboard/#https://gist.github.com/40b38e802556f94f41d9)

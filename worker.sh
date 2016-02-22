@@ -52,7 +52,6 @@ gist="`geojson-josm-url $DATA/bridgeonnode.final.json | gist -f bridgeonnode.fin
 url="http://rub21.github.io/geojson-dashboard/#$gist"
 echo $url
 
-
 echo "- Crossing highways..."
 gist="`geojson-josm-url $DATA/crossinghighways.final.json | gist -f crossinghighways.final.json`"
 url="http://rub21.github.io/geojson-dashboard/#$gist"
