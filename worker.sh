@@ -1,38 +1,43 @@
 #!/usr/bin/env bash
 
 DATA=/tmp
-country=$1
+urlmbtiles=$1
+mbtilesFile=$(basename "$mbtilesUrl")
 bbox=$2
 
-echo "# Downloading  MBTiles...https://s3.amazonaws.com/mapbox/osm-qa-tiles/latest.country/$country.gz"
-wget -O $DATA/$country.gz https://s3.amazonaws.com/mapbox/osm-qa-tiles/latest.country/$country.gz
+echo "# Downloading  MBTiles...$mbtilesFile"
+wget -O $DATA/$mbtilesFile @urlmbtiles
 
-echo "# Extracting peru..."
-gunzip $DATA/$country.gz
+if [ ${mbtilesFile: -3} == ".gz" ]
+then
+  echo "# Extracting $mbtilesFile..."
+  gunzip $DATA/$mbtilesFile
+  mbtilesFile=${mbtilesFile::-3}
+fi
 
 echo "# Looking for bridges on a node..."
-osmlint bridgeonnode --bbox=$bbox $DATA/$country > $DATA/bridgeonnode.json
+osmlint bridgeonnode --bbox=$bbox $DATA/$mbtilesFile > $DATA/bridgeonnode.json
 
 echo "# Looking for crossing highways..."
-osmlint crossinghighways --bbox=$bbox $DATA/$country > $DATA/crossinghighways.json
+osmlint crossinghighways --bbox=$bbox $DATA/$mbtilesFile > $DATA/crossinghighways.json
 
 echo "# Looking for crossing highways and waterways ..."
-osmlint crossingwaterwayshighways --bbox=$bbox $DATA/$country > $DATA/crossingwaterwayshighways.json
+osmlint crossingwaterwayshighways --bbox=$bbox $DATA/$mbtilesFile > $DATA/crossingwaterwayshighways.json
 
 echo "# Looking for missing layers on bridges..."
-osmlint missinglayerbridges --bbox=$bbox $DATA/$country > $DATA/missinglayerbridges.json
+osmlint missinglayerbridges --bbox=$bbox $DATA/$mbtilesFile > $DATA/missinglayerbridges.json
 
 echo "# Looking for node ending near highways..."
-osmlint nodeendingnearhighway --bbox=$bbox $DATA/$country > $DATA/nodeendingnearhighway.json
+osmlint nodeendingnearhighway --bbox=$bbox $DATA/$mbtilesFile > $DATA/nodeendingnearhighway.json
 
 echo "# Looking for self intersecting highways..."
-osmlint selfintersectinghighways --bbox=$bbox $DATA/$country > $DATA/selfintersectinghighways.json
+osmlint selfintersectinghighways --bbox=$bbox $DATA/$mbtilesFile > $DATA/selfintersectinghighways.json
 
 echo "# Looking for unclosed ways..."
-osmlint unclosedways --bbox=$bbox $DATA/$country > $DATA/unclosedways.json
+osmlint unclosedways --bbox=$bbox $DATA/$mbtilesFile > $DATA/unclosedways.json
 
 echo "# Looking for Unconnected highways"
-osmlint unconnectedhighways --bbox=$bbox $DATA/$country > $DATA/unconnectedhighways.json
+osmlint unconnectedhighways --bbox=$bbox $DATA/$mbtilesFile > $DATA/unconnectedhighways.json
 
 
 echo "# Merging results..."
