@@ -31,18 +31,20 @@ e.g
 
 To run all validators you can use the following command.
 
-`./worker.sh peru.mbtiles "[-81.462250,-18.417079,-68.542328,0.24169850]"`
+`./worker.sh https://s3.amazonaws.com/mapbox/osm-qa-tiles/latest.country/peru.mbtiles.gz "[-81.462250,-18.417079,-68.542328,0.24169850]"`
 
-In case you want to run the validator separately, you can use the  following commands.
+In case you want to run the validator separately, you can use the following commands.
 
 ```sh
+wget -O /tmp/peru.mbtiles.gz https://s3.amazonaws.com/mapbox/osm-qa-tiles/latest.country/peru.mbtiles.gz
+gunzip /tmp/peru.mbtiles.gz
 osmlint crossinghighways --bbox="[-81.462250,-18.417079,-68.542328,0.24169850]"  /tmp/peru.mbtiles > /tmp/crossinghighways.json
 python utils/merge-geojson.py /tmp/crossinghighways.json > /tmp/crossinghighways.final.json
 geojson-josm-url /tmp/crossinghighways.final.json | gist -f crossinghighways.final.json
 ```
 
 
-the output will be  a gist URL: https://gist.github.com/7bd40a110f8118e753e3
+the output will be a URL gist like: https://gist.github.com/7bd40a110f8118e753e3
 
 ### Result
 
