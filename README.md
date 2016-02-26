@@ -4,12 +4,12 @@ This repository shows an easy way to detect errors in OSM using [osmlint](https:
 
 ### Clone the repository
 
-`git clone https://github.com/Rub21/peru-osmlint.git`
+`git clone https://github.com/Rub21/run-osmlint.git`
 
 ### Install dependencies
 
 ```sh
-peru-osmlint$ sudo ./install.sh
+run-osmlint$ sudo ./install.sh
 ```
 ### Obtaining data
 [osmlint](https://github.com/osmlab/osmlint) works with the data produced by [osm-qa-tiles](http://osmlab.github.io/osm-qa-tiles/).
@@ -18,7 +18,7 @@ You can get MBtiles data from the [planet](http://osmlab.github.io/osm-qa-tiles/
 For this example I will use [peru.mbtiles](https://s3.amazonaws.com/mapbox/osm-qa-tiles/latest.country/peru.mbtiles.gz)
 
 
-### Getting the bounding box for Peru.
+### Getting the bounding box for Peru
 
 
 You can use the [wiki](http://wiki.openstreetmap.org/wiki/User:Ewmjc/Country_bounds) for the Bbox or this [page](http://lxbarth.com/bbox/#-81.462250,-18.417079,-68.542328,0.24169850,5,-8.53756535080403,-68.43246459960936) as well,  use the mouse to select  places you want to work on and copy the coordinates that appear within the URL.
